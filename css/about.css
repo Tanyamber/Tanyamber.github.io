@@ -1,0 +1,118 @@
+/* ==========================================================
+   about.css
+   About Page Styles
+   Depends on: variables.css, base.css, layout.css, components.css
+   ========================================================== */
+
+/* ---------- Story ---------- */
+
+.about-story .two-column{
+    align-items:center;
+}
+
+.about-story h2{
+    margin-bottom:1.5rem;
+}
+
+.about-story p{
+    margin-bottom:1.25rem;
+}
+
+/* ---------- Profile / Focus Card ---------- */
+
+.about-story .glass-card{
+    padding:2.5rem;
+}
+
+.about-story ul{
+    display:grid;
+    gap:1rem;
+    margin-top:1.5rem;
+}
+
+.about-story li{
+    padding:1rem 1.1rem;
+    border-radius:var(--radius-md);
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.03);
+    transition:var(--transition);
+}
+
+.about-story li:hover{
+    transform:translateX(6px);
+    border-color:var(--color-primary);
+}
+
+/* ---------- Values ---------- */
+
+.values{
+    position:relative;
+}
+
+.values h2{
+    text-align:center;
+    margin-bottom:3rem;
+}
+
+.values .cards{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+.values .card{
+    position:relative;
+    overflow:hidden;
+    min-height:260px;
+}
+
+.values .card::before{
+    content:"";
+    display:block;
+    width:60px;
+    height:4px;
+    border-radius:999px;
+    background:var(--gradient-primary);
+    margin-bottom:1.5rem;
+}
+
+.values .card p{
+    margin-bottom:0;
+}
+
+/* ---------- CTA ---------- */
+
+.about-story + .values + .cta{
+    text-align:center;
+}
+
+.cta .button{
+    margin-top:1.5rem;
+}
+
+/* ---------- Decorative ---------- */
+
+.about-story .glass-card::after{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    right:-120px;
+    bottom:-120px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(124,255,203,.10),transparent 70%);
+    pointer-events:none;
+}
+
+/* ---------- Responsive helpers ---------- */
+
+@media (max-width:992px){
+
+    .about-story .two-column{
+        grid-template-columns:1fr;
+        gap:2rem;
+    }
+
+    .values .cards{
+        grid-template-columns:1fr;
+    }
+
+}

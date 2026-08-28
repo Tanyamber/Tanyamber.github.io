@@ -1,0 +1,95 @@
+/* ==========================================================
+   variables.css
+   Premium Design System v1.0
+   ========================================================== */
+
+:root{
+
+  /* Brand */
+  --color-primary:#5B8CFF;
+  --color-primary-hover:#4A79F2;
+  --color-accent:#7CFFCB;
+
+  /* Background */
+  --color-bg:#05070B;
+  --color-bg-soft:#0B1017;
+  --color-surface:#111827;
+  --color-surface-2:#182230;
+
+  /* Text */
+  --color-text:#F8FAFC;
+  --color-text-muted:#A7B1C2;
+  --color-text-soft:#7F8A9C;
+
+  /* Borders */
+  --color-border:rgba(255,255,255,.08);
+  --color-border-strong:rgba(255,255,255,.16);
+
+  /* Glass */
+  --glass-bg:rgba(255,255,255,.05);
+  --glass-bg-hover:rgba(255,255,255,.08);
+  --glass-blur:22px;
+
+  /* Gradients */
+  --gradient-primary:linear-gradient(135deg,#5B8CFF 0%,#7CFFCB 100%);
+  --gradient-dark:linear-gradient(180deg,#111827,#05070B);
+
+  /* Typography */
+  --font-heading:"Space Grotesk",sans-serif;
+  --font-body:"Inter",sans-serif;
+
+  --fs-xs:.75rem;
+  --fs-sm:.875rem;
+  --fs-base:1rem;
+  --fs-lg:1.125rem;
+  --fs-xl:1.35rem;
+  --fs-2xl:2rem;
+  --fs-3xl:3rem;
+  --fs-hero:clamp(3rem,6vw,5.75rem);
+
+  --fw-regular:400;
+  --fw-medium:500;
+  --fw-semibold:600;
+  --fw-bold:700;
+  --fw-black:800;
+
+  /* Layout */
+  --container:1240px;
+  --section-padding:7rem;
+  --radius-sm:12px;
+  --radius-md:20px;
+  --radius-lg:32px;
+  --radius-pill:999px;
+
+  /* Shadows */
+  --shadow-sm:0 8px 20px rgba(0,0,0,.18);
+  --shadow-md:0 18px 40px rgba(0,0,0,.28);
+  --shadow-lg:0 30px 80px rgba(0,0,0,.38);
+
+  /* Motion */
+  --ease:cubic-bezier(.22,1,.36,1);
+  --transition-fast:.2s var(--ease);
+  --transition:.35s var(--ease);
+  --transition-slow:.6s var(--ease);
+
+  /* Layers */
+  --z-bg:-10;
+  --z-base:1;
+  --z-header:1000;
+  --z-modal:5000;
+}
+
+/* Responsive scales */
+@media (max-width:1024px){
+  :root{
+    --section-padding:5rem;
+    --fs-hero:clamp(2.5rem,8vw,4.5rem);
+  }
+}
+
+@media (max-width:768px){
+  :root{
+    --section-padding:4rem;
+    --container:92vw;
+  }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Case study: UK Financial Transactions Data Pipeline — a cloud-native ELT pipeline ingesting live REST API data into Google BigQuery with PyArrow and GCP IAM, reported through Power BI.">
+<title>UK Financial Transactions Data Pipeline | Tanya Amber</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='700' fill='%235B8CFF' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/projects.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+<div class="container">
+<a class="logo" href="../index.html">Tanya<span>.</span></a>
+
+<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+
+<nav id="siteNav">
+<a href="../index.html">Home</a>
+<a href="../about.html">About</a>
+<a href="../experience.html">Experience</a>
+<a class="active" href="../projects.html">Projects</a>
+<a href="../certifications.html">Certifications</a>
+<a href="../resume.html">Resume</a>
+<a href="../contact.html">Contact</a>
+<a class="button primary nav-cta" href="../assets/resume/Tanya-Amber-Resume.pdf">Download CV</a>
+</nav>
+</div>
+</header>
+
+<main>
+
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">CASE STUDY</span>
+<h1>UK Financial Transactions Data Pipeline</h1>
+<p class="lead">
+A cloud-native ELT pipeline ingesting live transactional JSON from a
+public REST API into Google BigQuery, using PyArrow for efficient
+in-memory handling and GCP IAM for secure credentials, reported through
+Power BI.
+</p>
+<div class="actions">
+<a class="button secondary" href="https://github.com/Tanyamber/uk-financial-data-pipeline" target="_blank" rel="noopener">View on GitHub</a>
+</div>
+</div>
+</section>
+
+<section class="case-study">
+<div class="container">
+
+<h2>Executive Summary</h2>
+<p>
+Financial reporting often depends on data trapped in operational systems
+with no direct reporting layer. This project built a live, cloud-native
+ingestion pipeline that pulls transactional data straight from a REST API
+into a BigQuery warehouse, ready for Power BI reporting — no manual
+exports required.
+</p>
+
+<h2>Business Problem</h2>
+<p>
+Manually exporting and reshaping transactional data for reporting is slow,
+error-prone and doesn't scale. The goal was a repeatable, automated path
+from a live API straight into an analytics-ready warehouse.
+</p>
+
+<h2>Solution Architecture</h2>
+
+<pre style="padding:20px;border:1px solid #333;border-radius:12px;overflow:auto;">
+Public REST API (JSON)
+        │
+        ▼
+ Python + PyArrow (in-memory processing)
+        │
+        ▼
+ GCP IAM (service-account credentials)
+        │
+        ▼
+ Google BigQuery (warehouse)
+        │
+        ▼
+ Power BI Reporting Layer
+</pre>
+
+<h2>Technology Stack</h2>
+<p>Python • PyArrow • REST API • Google BigQuery • GCP IAM • Power BI</p>
+
+<h2>Pipeline Stages</h2>
+
+<ol>
+<li>Call the public REST API to pull live transactional JSON.</li>
+<li>Process records in memory with PyArrow for efficient type handling.</li>
+<li>Authenticate securely to Google Cloud using a GCP IAM service account.</li>
+<li>Load curated records into a BigQuery warehouse table.</li>
+<li>Connect Power BI directly to BigQuery for reporting.</li>
+</ol>
+
+<h2>Engineering Considerations</h2>
+<ul>
+<li>Service-account based credential security via GCP IAM, avoiding hard-coded secrets.</li>
+<li>PyArrow used for memory-efficient, typed in-memory data handling ahead of load.</li>
+<li>BigQuery chosen as a serverless warehouse to avoid infrastructure management.</li>
+</ul>
+
+<h2>Dashboard Focus</h2>
+
+<div class="insights">
+
+<div class="insight-card">
+<h3>Transaction Volume</h3>
+<p>Live view of transaction throughput as new records land in BigQuery.</p>
+</div>
+
+<div class="insight-card">
+<h3>Data Freshness</h3>
+<p>Pipeline designed around live ingestion rather than static batch exports.</p>
+</div>
+
+<div class="insight-card">
+<h3>Secure Access</h3>
+<p>Credential handling via GCP IAM service accounts rather than static keys.</p>
+</div>
+
+<div class="insight-card">
+<h3>Reporting Layer</h3>
+<p>Power BI connects directly to BigQuery, keeping one source of truth.</p>
+</div>
+
+</div>
+
+<h2>Business Benefits</h2>
+<ul>
+<li>Removes manual export/reshape steps from financial reporting.</li>
+<li>Serverless warehouse means no infrastructure to manage or patch.</li>
+<li>Reusable ingestion pattern for any REST-based data source.</li>
+</ul>
+
+<h2>Key Learning</h2>
+<p>
+This project strengthened practical skills in cloud-native ELT design,
+GCP IAM security, and PyArrow-based data handling — extending the ETL
+discipline I built in banking onto a fully serverless cloud stack.
+</p>
+
+<div class="project-navigation">
+<a href="retail-banking.html">← Previous Case Study</a>
+<a href="../projects.html">All Projects →</a>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<div class="container">
+<p>© 2026 Tanya Amber</p>
+</div>
+</footer>
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>

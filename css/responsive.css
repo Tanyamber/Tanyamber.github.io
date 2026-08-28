@@ -1,0 +1,175 @@
+/* ==========================================================
+   responsive.css
+   Responsive Layout
+   ========================================================== */
+
+/* ---------- Large Tablets ---------- */
+@media (max-width:1200px){
+
+    .hero-grid,
+    .featured-project,
+    .featured-project.reverse,
+    .two-column{
+        grid-template-columns:1fr;
+        gap:3rem;
+    }
+
+    .featured-project.reverse .project-preview,
+    .featured-project.reverse .project-image{
+        order:initial;
+    }
+
+    .hero-dashboard{
+        max-width:700px;
+        margin:0 auto;
+    }
+
+    .site-header .container{
+        flex-wrap:wrap;
+        padding:1rem 0;
+    }
+
+    .site-header nav{
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+        margin-left:0;
+    }
+}
+
+/* ---------- Tablets ---------- */
+@media (max-width:992px){
+
+    section{
+        padding-block:5rem;
+    }
+
+    .hero{
+        min-height:auto;
+    }
+
+    .hero h1{
+        font-size:clamp(2.5rem,8vw,4rem);
+    }
+
+    .hero-metrics,
+    .timeline-preview,
+    .project-grid,
+    .cards,
+    .future-grid,
+    .cert-grid,
+    .roadmap,
+    .contact-grid,
+    .certifications-grid .container{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard{
+        width:100%;
+    }
+
+    .actions,
+    .hero-actions,
+    .cta-buttons{
+        justify-content:flex-start;
+        flex-wrap:wrap;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width:768px){
+
+    .container{
+        width:92%;
+    }
+
+    .site-header .container{
+        min-height:auto;
+    }
+
+    .logo{
+        width:100%;
+        text-align:center;
+        margin-bottom:.75rem;
+    }
+
+    .site-header nav{
+        gap:1rem;
+        font-size:.95rem;
+    }
+
+    .button{
+        width:100%;
+    }
+
+    .hero-actions{
+        width:100%;
+    }
+
+    .metric,
+    .project-card,
+    .certificate-card,
+    .glass-card,
+    .timeline-item .content{
+        padding:1.5rem;
+    }
+
+    .project-image{
+        min-height:220px;
+    }
+
+    .insights{
+        grid-template-columns:1fr;
+    }
+
+    .project-navigation{
+        flex-direction:column;
+    }
+
+    h1{
+        line-height:1.1;
+    }
+
+    h2{
+        font-size:2rem;
+    }
+
+    .lead{
+        font-size:1rem;
+    }
+}
+
+/* ---------- Small Phones ---------- */
+@media (max-width:480px){
+
+    .site-header nav{
+        flex-direction:column;
+    }
+
+    .eyebrow{
+        font-size:.7rem;
+        padding:.55rem .8rem;
+    }
+
+    .metric h2{
+        font-size:1.5rem;
+    }
+
+    .dashboard{
+        padding:1.25rem;
+    }
+
+    .kpis{
+        grid-template-columns:1fr;
+    }
+
+    .project-image{
+        min-height:180px;
+        font-size:1rem;
+    }
+
+    .footer,
+    .site-footer{
+        text-align:center;
+    }
+}

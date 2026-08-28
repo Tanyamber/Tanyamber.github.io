@@ -1,0 +1,190 @@
+/* ==========================================================
+   home.css
+   Homepage Styles
+   Depends on: variables.css, base.css, layout.css, components.css
+   ========================================================== */
+
+/* ---------- Hero ---------- */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    min-height:calc(100vh - 84px);
+    display:flex;
+    align-items:center;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(91,140,255,.12), transparent 30%),
+        radial-gradient(circle at 85% 75%, rgba(124,255,203,.08), transparent 30%);
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    max-width:760px;
+    margin-bottom:1.5rem;
+}
+
+.hero .lead{
+    margin-bottom:2rem;
+}
+
+.hero-actions{
+    margin-bottom:2.5rem;
+}
+
+.hero-dashboard{
+    position:relative;
+}
+
+.dashboard{
+    position:relative;
+}
+
+.dashboard::after{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius:inherit;
+    border:1px solid rgba(255,255,255,.05);
+    pointer-events:none;
+}
+
+.kpis{
+    margin-top:2rem;
+}
+
+.kpi{
+    position:relative;
+}
+
+.kpi::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:4px;
+    height:100%;
+    border-radius:4px;
+    background:var(--gradient-primary);
+}
+
+/* ---------- Preview Sections ---------- */
+
+.preview{
+    position:relative;
+}
+
+.preview h2{
+    margin-bottom:1rem;
+}
+
+.preview .button{
+    margin-top:2rem;
+}
+
+/* ---------- Timeline Preview ---------- */
+
+.timeline-preview strong{
+    display:block;
+    margin-bottom:.5rem;
+}
+
+.timeline-preview p{
+    margin:0;
+}
+
+/* ---------- Homepage Project Cards ---------- */
+
+.project-card{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:240px;
+}
+
+.project-card::before{
+    content:"";
+    display:block;
+    width:56px;
+    height:4px;
+    border-radius:999px;
+    margin-bottom:1.5rem;
+    background:var(--gradient-primary);
+}
+
+.project-card p{
+    flex:1;
+}
+
+.project-card a{
+    margin-top:1.5rem;
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+}
+
+/* ---------- Certification Cards ---------- */
+
+.cert-grid{
+    margin-top:2rem;
+}
+
+.cert-card{
+    padding:2rem;
+    text-align:center;
+    font-weight:var(--fw-semibold);
+}
+
+/* ---------- CTA ---------- */
+
+.cta{
+    text-align:center;
+    padding-block:8rem;
+}
+
+.cta .container{
+    max-width:840px;
+}
+
+.cta h2{
+    margin-bottom:1rem;
+}
+
+.cta .hero-actions{
+    justify-content:center;
+    margin-top:2rem;
+}
+
+/* ---------- Decorative ---------- */
+
+.metric,
+.project-card,
+.cert-card,
+.dashboard{
+    position:relative;
+    overflow:hidden;
+}
+
+.metric::after,
+.project-card::after,
+.cert-card::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    right:-120px;
+    top:-120px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(91,140,255,.12), transparent 70%);
+    pointer-events:none;
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Case study: Hospitality EPOS Data Pipeline — Azure SQL, ADF, Snowflake, dbt Cloud and Power BI DirectQuery pipeline processing 50,000 EPOS transactions.">
+<title>Hospitality EPOS Data Pipeline | Tanya Amber</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='700' fill='%235B8CFF' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/projects.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+<div class="container">
+<a class="logo" href="../index.html">Tanya<span>.</span></a>
+
+<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+
+<nav id="siteNav">
+<a href="../index.html">Home</a>
+<a href="../about.html">About</a>
+<a href="../experience.html">Experience</a>
+<a class="active" href="../projects.html">Projects</a>
+<a href="../certifications.html">Certifications</a>
+<a href="../resume.html">Resume</a>
+<a href="../contact.html">Contact</a>
+<a class="button primary nav-cta" href="../assets/resume/Tanya-Amber-Resume.pdf">Download CV</a>
+</nav>
+</div>
+</header>
+
+<main>
+
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">CASE STUDY</span>
+<h1>Hospitality EPOS Data Pipeline</h1>
+<p class="lead">
+A production-style enterprise data platform processing 50,000 synthetic
+EPOS transactions across restaurants, pubs and hotels: Python → Azure SQL
+→ Azure Data Factory → Snowflake → dbt Cloud → Power BI DirectQuery.
+</p>
+<div class="actions">
+<a class="button secondary" href="https://github.com/Tanyamber/hospitality-epos-data-pipeline" target="_blank" rel="noopener">View on GitHub</a>
+</div>
+</div>
+</section>
+
+<section class="case-study">
+<div class="container">
+
+<h2>Executive Summary</h2>
+<p>
+Hospitality groups run point-of-sale data across many disconnected
+venues. This project built an end-to-end scalable platform that
+generates realistic EPOS data, lands it in Azure SQL, moves it through
+Azure Data Factory into Snowflake, transforms it in dbt Cloud, and
+reports on it live through Power BI DirectQuery — following the same
+data-engineering best practices used in production environments.
+</p>
+
+<h2>Business Problem</h2>
+<p>
+Multi-venue hospitality businesses need a single, trustworthy view of
+venue performance and guest loyalty, but data usually starts scattered
+across separate EPOS systems with no shared model or governance.
+</p>
+
+<h2>Solution Architecture</h2>
+
+<pre style="padding:20px;border:1px solid #333;border-radius:12px;overflow:auto;">
+Python (synthetic EPOS data generation)
+        │
+        ▼
+Azure SQL (T-SQL stored procedures, views, audit logging)
+        │
+        ▼
+Azure Data Factory (daily scheduled pipeline + post-copy audit)
+        │
+        ▼
+Snowflake (Storage Integration + Azure IAM + RBAC)
+        │
+        ▼
+dbt Cloud (staging → intermediate → mart)
+        │
+        ▼
+Power BI (DirectQuery dashboard)
+</pre>
+
+<h2>Technology Stack</h2>
+<p>Python • Azure SQL • Azure Data Factory • Snowflake • dbt Cloud • Power BI (DirectQuery)</p>
+
+<h2>Engineering Highlights</h2>
+<ul>
+<li>Configured Snowflake Storage Integration with Azure IAM role assignment, plus full RBAC (ownership transfer from ACCOUNTADMIN to SYSADMIN) — eliminating token-based authentication.</li>
+<li>Built a 3-tier dbt transformation layer: a staging view for type validation and field standardisation, an ephemeral intermediate CTE using ROW_NUMBER and LAG window functions for customer visit sequencing, and materialised mart tables.</li>
+<li>Implemented 30/90/180-day loyalty thresholds feeding a 2,000-customer retention and CLV forecast model.</li>
+<li>Custom <code>generate_schema_name</code> dbt macro override for schema routing, with dbt documentation generated for every model.</li>
+<li>5 of 5 automated dbt schema tests passing.</li>
+<li>Version control via dev/main Git branching with a conventional-commit PR merge workflow, plus an engineering journal documenting technical decisions and troubleshooting.</li>
+</ul>
+
+<h2>Dashboard Highlights</h2>
+
+<div class="insights">
+
+<div class="insight-card">
+<h3>Revenue Share by Segment</h3>
+<p>Live DirectQuery view of revenue split across restaurants, pubs and hotels.</p>
+</div>
+
+<div class="insight-card">
+<h3>CLV Forecast</h3>
+<p>Forward-looking customer lifetime value forecast for the loyalty segment.</p>
+</div>
+
+<div class="insight-card">
+<h3>Loyalty &amp; Retention</h3>
+<p>30/90/180-day visit recency thresholds surfaced as a retention KPI.</p>
+</div>
+
+<div class="insight-card">
+<h3>Cross-Filtering KPIs</h3>
+<p>KPI cards and cross-filtering let stakeholders drill from venue to guest level.</p>
+</div>
+
+</div>
+
+<h2>Key Learning</h2>
+<p>
+This was my deepest dive into cross-cloud identity management and
+analytics engineering discipline — moving from "just write SQL" to
+designing a governed, tested, documented transformation layer that a
+team could actually maintain.
+</p>
+
+<div class="project-navigation">
+<a href="../projects.html">← Back to Projects</a>
+<a href="uk-data-job-market-platform.html">Next Case Study →</a>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<div class="container">
+<p>© 2026 Tanya Amber</p>
+</div>
+</footer>
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>

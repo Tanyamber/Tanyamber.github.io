@@ -1,0 +1,117 @@
+/* ==========================================================
+   experience.css
+   Experience Page Styles
+   Depends on: variables.css, base.css, layout.css, components.css
+   ========================================================== */
+
+.timeline-section{
+    position:relative;
+}
+
+.timeline-section .container{
+    max-width:980px;
+}
+
+.timeline-item{
+    position:relative;
+    padding-bottom:3rem;
+}
+
+.timeline-item:last-child{
+    padding-bottom:0;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    left:79px;
+    top:2.2rem;
+    bottom:-.5rem;
+    width:2px;
+    background:linear-gradient(
+        to bottom,
+        rgba(91,140,255,.55),
+        rgba(124,255,203,.15)
+    );
+}
+
+.timeline-item:last-child::before{
+    display:none;
+}
+
+.timeline-item .year{
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    width:160px;
+    font-size:var(--fs-lg);
+}
+
+.timeline-item .year::before{
+    content:"";
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:var(--gradient-primary);
+    box-shadow:0 0 0 6px rgba(91,140,255,.12);
+    position:absolute;
+    left:71px;
+    top:.45rem;
+}
+
+.timeline-item .content{
+    transition:var(--transition);
+}
+
+.timeline-item .content:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-lg);
+}
+
+.timeline-item h2{
+    font-size:1.7rem;
+    margin-bottom:.35rem;
+}
+
+.timeline-item h3{
+    color:var(--color-accent);
+    font-size:1rem;
+    margin-bottom:1.2rem;
+}
+
+.timeline-item h4{
+    margin:1.5rem 0 .8rem;
+    font-size:1rem;
+}
+
+.timeline-item ul{
+    list-style:disc;
+    padding-left:1.2rem;
+}
+
+.timeline-item li{
+    color:var(--color-text-muted);
+    margin-bottom:.6rem;
+}
+
+.timeline-section .cta{
+    margin-top:4rem;
+}
+
+@media (max-width:900px){
+
+    .timeline-item{
+        grid-template-columns:1fr;
+        gap:1rem;
+    }
+
+    .timeline-item::before,
+    .timeline-item .year::before{
+        display:none;
+    }
+
+    .timeline-item .year{
+        width:auto;
+        justify-content:flex-start;
+    }
+}

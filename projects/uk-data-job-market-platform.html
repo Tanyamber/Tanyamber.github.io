@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Case study: UK Data Job Market Intelligence Platform — Prefect-orchestrated ingestion of live UK job listings into BigQuery, transformed with dbt and reported in Power BI.">
+<title>UK Data Job Market Intelligence Platform | Tanya Amber</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='700' fill='%235B8CFF' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/projects.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+<div class="container">
+<a class="logo" href="../index.html">Tanya<span>.</span></a>
+
+<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+
+<nav id="siteNav">
+<a href="../index.html">Home</a>
+<a href="../about.html">About</a>
+<a href="../experience.html">Experience</a>
+<a class="active" href="../projects.html">Projects</a>
+<a href="../certifications.html">Certifications</a>
+<a href="../resume.html">Resume</a>
+<a href="../contact.html">Contact</a>
+<a class="button primary nav-cta" href="../assets/resume/Tanya-Amber-Resume.pdf">Download CV</a>
+</nav>
+</div>
+</header>
+
+<main>
+
+<section class="page-hero">
+<div class="container">
+<span class="eyebrow">CASE STUDY</span>
+<h1>UK Data Job Market Intelligence Platform</h1>
+<p class="lead">
+A fully automated data platform ingesting 200+ live UK job listings a day
+via the Adzuna API, orchestrated with Prefect, transformed with dbt, and
+reported through Power BI.
+</p>
+<div class="actions">
+<a class="button secondary" href="https://github.com/Tanyamber/uk-data-job-market-platform" target="_blank" rel="noopener">View on GitHub</a>
+</div>
+</div>
+</section>
+
+<section class="case-study">
+<div class="container">
+
+<h2>Executive Summary</h2>
+<p>
+Understanding where UK data jobs actually are — and what they pay and
+require — means pulling and refreshing live listings, not relying on a
+one-off scrape. This project builds a daily-refreshed platform: Prefect
+orchestrates ingestion of 200+ live listings a day from the Adzuna API
+into Google BigQuery, dbt transforms and text-mines them, and Power BI
+reports on the result.
+</p>
+
+<h2>Business Problem</h2>
+<p>
+Job market data changes daily and lives across many postings with
+inconsistent text. The goal was a scalable, hands-off pipeline that keeps
+salary and skill-demand insights current without manual re-running.
+</p>
+
+<h2>Solution Architecture</h2>
+
+<pre style="padding:20px;border:1px solid #333;border-radius:12px;overflow:auto;">
+Adzuna API (live UK job listings)
+        │
+        ▼
+Python + Prefect (scheduling, monitoring, error handling)
+        │
+        ▼
+Google BigQuery (raw landing)
+        │
+        ▼
+dbt (staging → intermediate → marts, skills text-mining)
+        │
+        ▼
+Power BI (salary &amp; hotspot dashboard)
+</pre>
+
+<h2>Technology Stack</h2>
+<p>Python • Prefect • Google BigQuery • dbt • Power BI</p>
+
+<h2>Engineering Highlights</h2>
+<ul>
+<li>Prefect orchestration handling scheduling, monitoring, error handling and network-delay management for a live external API.</li>
+<li>3-tier dbt transformation layer (staging → intermediate → marts) with SQL window-function deduplication and validation tests.</li>
+<li>Inline SQL text-mining to classify demand for 7 core technical skills across 4 job segments.</li>
+<li>dbt documentation generated for every model in the project.</li>
+<li>Version control via Git throughout development.</li>
+</ul>
+
+<h2>Dashboard Highlights</h2>
+
+<div class="insights">
+
+<div class="insight-card">
+<h3>Salary Distributions</h3>
+<p>Live view of salary ranges across roles and seniority levels.</p>
+</div>
+
+<div class="insight-card">
+<h3>Geographic Hotspots</h3>
+<p>Where UK data roles are concentrated, updated as new listings land.</p>
+</div>
+
+<div class="insight-card">
+<h3>Skill Demand Rankings</h3>
+<p>Text-mined ranking of the most requested technical skills across segments.</p>
+</div>
+
+<div class="insight-card">
+<h3>Live Application Links</h3>
+<p>Dashboard links straight back to the original live job posting.</p>
+</div>
+
+</div>
+
+<h2>Key Learning</h2>
+<p>
+This project pushed me into workflow orchestration and text-mining beyond
+plain SQL and Power BI — designing for a live external API that can fail,
+rate-limit or return messy text, and building a pipeline that keeps
+running without daily hand-holding.
+</p>
+
+<div class="project-navigation">
+<a href="hospitality-epos-pipeline.html">← Previous Case Study</a>
+<a href="../projects.html">All Projects →</a>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<div class="container">
+<p>© 2026 Tanya Amber</p>
+</div>
+</footer>
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>
