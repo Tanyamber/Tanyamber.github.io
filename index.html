@@ -196,6 +196,23 @@ users who rely on them.
 </article>
 
 <article class="project-card">
+<div style="width:100%;height:200px;border-radius:var(--radius-md);margin-bottom:1rem;border:1px solid var(--color-border-strong);background:radial-gradient(circle at top right,rgba(91,140,255,.18),transparent 35%),linear-gradient(180deg,#182230,#0b1017);display:flex;align-items:center;justify-content:center;">
+<svg viewBox="0 0 400 260" width="90%" height="90%" role="img" aria-label="Pipeline diagram from REST API to BigQuery to Power BI">
+<rect x="30" y="105" width="90" height="50" rx="10" fill="var(--color-surface-2)" stroke="var(--color-border-strong)"/>
+<text x="75" y="135" text-anchor="middle" fill="var(--color-text)" font-family="Inter, sans-serif" font-size="13">REST API</text>
+<rect x="155" y="105" width="90" height="50" rx="10" fill="var(--color-primary)" opacity="0.85"/>
+<text x="200" y="135" text-anchor="middle" fill="#05070B" font-family="Inter, sans-serif" font-size="13" font-weight="600">BigQuery</text>
+<rect x="280" y="105" width="90" height="50" rx="10" fill="var(--color-accent)" opacity="0.9"/>
+<text x="325" y="135" text-anchor="middle" fill="#05070B" font-family="Inter, sans-serif" font-size="13" font-weight="600">Power BI</text>
+<path d="M120,130 L155,130" stroke="var(--color-text-soft)" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M245,130 L280,130" stroke="var(--color-text-soft)" stroke-width="2" marker-end="url(#arrow)"/>
+<defs>
+<marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+<path d="M0,0 L8,4 L0,8 Z" fill="var(--color-text-soft)"/>
+</marker>
+</defs>
+</svg>
+</div>
 <h3>UK Financial Transactions Data Pipeline</h3>
 <p>Live REST API ingestion into Google BigQuery using PyArrow and GCP IAM, feeding a Power BI reporting layer for financial transaction monitoring.</p>
 <a href="projects/uk-financial-data-pipeline.html">View Case Study →</a>
